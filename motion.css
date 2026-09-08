@@ -1,0 +1,506 @@
+/* ============================================
+   Homepage motion — Tech Forge 2026
+   Progressive enhancement via html.motion-on
+   ============================================ */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 0.2s;
+  --motion-med: 0.55s;
+  --motion-slow: 0.75s;
+}
+
+/* ----- Progressive hide only when motion is on ----- */
+html.motion-on .js-reveal,
+html.motion-on .js-hero-item,
+html.motion-on .js-nav-item,
+html.motion-on .js-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--motion-med) var(--ease-out),
+    transform var(--motion-med) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+html.motion-on .js-reveal.is-in,
+html.motion-on .js-hero-item.is-in,
+html.motion-on .js-nav-item.is-in,
+html.motion-on .js-stagger.is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+html.motion-on .js-stagger > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+html.motion-on .js-stagger > *:nth-child(2) {
+  transition-delay: 80ms;
+}
+html.motion-on .js-stagger > *:nth-child(3) {
+  transition-delay: 160ms;
+}
+html.motion-on .js-stagger > *:nth-child(4) {
+  transition-delay: 240ms;
+}
+html.motion-on .js-stagger > *:nth-child(5) {
+  transition-delay: 320ms;
+}
+html.motion-on .js-stagger > *:nth-child(6) {
+  transition-delay: 400ms;
+}
+
+html.motion-on .js-stagger--tight > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+html.motion-on .js-stagger--tight > *:nth-child(2) {
+  transition-delay: 70ms;
+}
+html.motion-on .js-stagger--tight > *:nth-child(3) {
+  transition-delay: 140ms;
+}
+html.motion-on .js-stagger--tight > *:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+/* Image / skyline variants */
+html.motion-on .js-reveal--image {
+  transform: scale(1.03);
+  transform-origin: center;
+}
+
+html.motion-on .js-reveal--image.is-in {
+  transform: scale(1);
+}
+
+html.motion-on .js-reveal--from-right {
+  transform: translateX(20px);
+}
+
+html.motion-on .js-reveal--from-right.is-in {
+  transform: none;
+}
+
+html.motion-on .js-reveal--script {
+  transform: translateY(8px) rotate(-2deg);
+}
+
+html.motion-on .js-reveal--script.is-in {
+  transform: none;
+}
+
+html.motion-on .js-reveal--note {
+  transform: translateY(12px) rotate(2deg);
+}
+
+html.motion-on .js-reveal--note.is-in {
+  transform: none;
+}
+
+html.motion-on .js-hero-item.js-reveal--note {
+  transform: translateY(12px) rotate(2deg);
+}
+
+html.motion-on .js-hero-item.js-reveal--note.is-in {
+  transform: none;
+}
+
+html.motion-on .js-hero-item.js-reveal--inset {
+  transform: translateY(20px) scale(0.96);
+}
+
+html.motion-on .js-hero-item.js-reveal--inset.is-in {
+  transform: none;
+}
+
+html.motion-on .js-stagger > .js-reveal--image {
+  transform: scale(1.03);
+}
+
+html.motion-on .js-stagger.is-in > .js-reveal--image {
+  transform: scale(1);
+}
+
+html.motion-on .js-stagger > .js-reveal--script {
+  transform: translateY(8px) rotate(-2deg);
+}
+
+html.motion-on .js-stagger.is-in > .js-reveal--script {
+  transform: none;
+}
+
+html.motion-on .js-reveal--inset {
+  transform: translateY(20px) scale(0.96);
+}
+
+html.motion-on .js-reveal--inset.is-in {
+  transform: none;
+}
+
+/* Handwritten underline draw — only when motion-on */
+html.motion-on .script--highlight {
+  background-image: linear-gradient(
+    transparent 58%,
+    var(--yellow) 58%,
+    var(--yellow) 92%,
+    transparent 92%
+  );
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  transition: background-size 0.7s var(--ease-out);
+}
+
+html.motion-on .js-reveal--script.is-in .script--highlight,
+html.motion-on .hero.is-ready .hero__script.is-in .script--highlight,
+html.motion-on .js-stagger.is-in .js-reveal--script .script--highlight,
+html.motion-on .is-in .script--highlight {
+  background-size: 100% 100%;
+}
+
+/* ----- Navbar entrance ----- */
+html.motion-on .site-header .logo.js-nav-item {
+  transform: translateY(-6px);
+}
+
+html.motion-on .site-header .header-cta.js-nav-item {
+  transform: scale(0.97);
+}
+
+html.motion-on .site-header .nav.js-stagger > * {
+  transform: translateY(-4px);
+}
+
+/* ----- Hero title lines ----- */
+.hero__title-line {
+  display: block;
+}
+
+html.motion-on .hero__title-line {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out);
+}
+
+html.motion-on .hero.is-ready .hero__title-line {
+  opacity: 1;
+  transform: none;
+}
+
+html.motion-on .hero.is-ready .hero__title-line:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+/* Hero photo settle */
+html.motion-on .hero__photo.js-hero-item {
+  transform: scale(1.03);
+}
+
+html.motion-on .hero__photo.js-hero-item.is-in {
+  transform: scale(1);
+}
+
+html.motion-on .hero__photo,
+html.motion-on .hero__inset,
+html.motion-on .community__main,
+html.motion-on .community__side {
+  overflow: hidden;
+}
+
+html.motion-on .hero__photo img,
+html.motion-on .hero__inset img,
+html.motion-on .community__main img,
+html.motion-on .community__side img {
+  transition: transform 0.4s var(--ease-out);
+  will-change: transform;
+}
+
+html.motion-on .community__main:hover img,
+html.motion-on .community__side:hover img {
+  transform: scale(1.025);
+}
+
+/* Parallax layers — transform set via JS custom props */
+html.motion-on .hero__photo.js-parallax:not(.is-in) {
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.03);
+}
+
+html.motion-on .hero__photo.js-parallax.is-in {
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1);
+}
+
+html.motion-on .hero__inset.js-parallax:not(.is-in) {
+  transform: translate3d(0, var(--parallax-y, 0px), 0) translateY(20px)
+    scale(0.96);
+}
+
+html.motion-on .hero__inset.js-parallax.is-in {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+html.motion-on .hero__yellow.js-parallax:not(.is-in) {
+  transform: translate3d(0, var(--parallax-y, 0px), 0) translateY(12px)
+    rotate(2deg);
+}
+
+html.motion-on .hero__yellow.js-parallax.is-in,
+html.motion-on .hero__pink.js-parallax.is-in,
+html.motion-on .hero__spark.js-parallax.is-in {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+html.motion-on .hero__pink.js-parallax:not(.is-in),
+html.motion-on .hero__spark.js-parallax:not(.is-in) {
+  transform: translate3d(0, var(--parallax-y, 0px), 0) translateY(16px);
+}
+
+/* Floating decorative motion */
+@keyframes float-y {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+@keyframes float-y-sm {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 4px;
+  }
+}
+
+html.motion-on .hero.is-ready .hero__pink {
+  animation: float-y-sm 6.5s ease-in-out infinite;
+}
+
+html.motion-on .hero.is-ready .hero__yellow {
+  animation: float-y 7.5s ease-in-out infinite;
+}
+
+html.motion-on .hero.is-ready .hero__spark {
+  animation: float-y-sm 8s ease-in-out infinite;
+}
+
+html.motion-on .hero.is-ready .hero__shape--1 {
+  animation: float-y 7s ease-in-out infinite;
+}
+
+html.motion-on .hero.is-ready .hero__shape--2 {
+  animation: float-y-sm 6s ease-in-out infinite 0.4s;
+}
+
+html.motion-on .hero.is-ready .hero__shape--3 {
+  animation: float-y 8s ease-in-out infinite 0.8s;
+}
+
+/* When parallax + float both apply to yellow/pink, compose carefully:
+   float uses `translate` property; parallax uses transform — OK in modern CSS */
+
+/* ----- Buttons ----- */
+.btn--primary {
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform 0.2s var(--ease-out);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary:active {
+  transform: scale(0.98);
+}
+
+.btn__arrow {
+  display: inline-block;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.btn--primary:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+.link-arrow .link-arrow__glyph {
+  display: inline-block;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.link-arrow:hover .link-arrow__glyph {
+  transform: translateX(4px);
+}
+
+/* Topic cards */
+.topic {
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+}
+
+html.motion-on .topic:hover {
+  transform: translateY(-4px);
+}
+
+html.motion-on .topic__art {
+  transition:
+    opacity 0.45s var(--ease-out),
+    transform 0.45s var(--ease-out);
+  transform-origin: center;
+}
+
+html.motion-on .js-stagger--topics:not(.is-in) .topic__art {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+html.motion-on .js-stagger--topics.is-in .topic__art {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 120ms;
+}
+
+html.motion-on .topic:hover .topic__art {
+  transform: scale(1.03);
+}
+
+/* About skyline */
+html.motion-on .about__photo.js-reveal--from-right {
+  transition-duration: 0.7s;
+}
+
+/* Community heading lines */
+.reveal-line {
+  display: block;
+}
+
+html.motion-on .community__copy .reveal-line,
+html.motion-on .about__heading .reveal-line,
+html.motion-on .final-cta__title .reveal-line {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+
+html.motion-on .community__copy.is-in .reveal-line,
+html.motion-on .about__heading.is-in .reveal-line,
+html.motion-on .final-cta__copy.is-in .reveal-line {
+  opacity: 1;
+  transform: none;
+}
+
+html.motion-on .community__copy.is-in .reveal-line:nth-child(2),
+html.motion-on .about__heading.is-in .reveal-line:nth-child(2),
+html.motion-on .final-cta__copy.is-in .final-cta__title {
+  transition-delay: 90ms;
+}
+
+html.motion-on .final-cta__copy.is-in .btn-row {
+  transition-delay: 160ms;
+}
+
+html.motion-on .final-cta__skyline.js-reveal--from-right {
+  transition-duration: 0.75s;
+}
+
+/* Stats */
+html.motion-on .stat.js-reveal {
+  transform: translateY(16px);
+}
+
+html.motion-on .stats__grid .stat:nth-child(1) {
+  transition-delay: 0ms;
+}
+html.motion-on .stats__grid .stat:nth-child(2) {
+  transition-delay: 70ms;
+}
+html.motion-on .stats__grid .stat:nth-child(3) {
+  transition-delay: 140ms;
+}
+html.motion-on .stats__grid .stat:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+.footer-nav a,
+.footer-social a {
+  transition: color 0.2s var(--ease-out), opacity 0.2s var(--ease-out);
+}
+
+/* ----- Mobile: quieter motion ----- */
+@media (max-width: 860px) {
+  html.motion-on .js-reveal,
+  html.motion-on .js-hero-item,
+  html.motion-on .js-stagger > * {
+    transform: translateY(10px);
+  }
+
+  html.motion-on .js-reveal--from-right {
+    transform: translateY(12px);
+  }
+
+  html.motion-on .js-reveal--inset {
+    transform: translateY(12px) scale(0.98);
+  }
+
+  html.motion-on .hero.is-ready .hero__pink,
+  html.motion-on .hero.is-ready .hero__yellow,
+  html.motion-on .hero.is-ready .hero__spark,
+  html.motion-on .hero.is-ready .hero__shape--1,
+  html.motion-on .hero.is-ready .hero__shape--2,
+  html.motion-on .hero.is-ready .hero__shape--3 {
+    animation: none;
+  }
+
+  html.motion-on .community__main:hover img,
+  html.motion-on .community__side:hover img {
+    transform: none;
+  }
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  html.motion-on .js-reveal,
+  html.motion-on .js-hero-item,
+  html.motion-on .js-nav-item,
+  html.motion-on .js-stagger > *,
+  html.motion-on .hero__title-line,
+  html.motion-on .reveal-line,
+  html.motion-on .topic__art,
+  html.motion-on .script--highlight {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+
+  html.motion-on .hero.is-ready .hero__pink,
+  html.motion-on .hero.is-ready .hero__yellow,
+  html.motion-on .hero.is-ready .hero__spark,
+  html.motion-on .hero.is-ready .hero__shape--1,
+  html.motion-on .hero.is-ready .hero__shape--2,
+  html.motion-on .hero.is-ready .hero__shape--3 {
+    animation: none !important;
+  }
+
+  .btn--primary:hover,
+  .btn--primary:active,
+  .btn--primary:hover .btn__arrow,
+  .link-arrow:hover .link-arrow__glyph,
+  html.motion-on .topic:hover,
+  html.motion-on .topic:hover .topic__art,
+  html.motion-on .community__main:hover img,
+  html.motion-on .community__side:hover img {
+    transform: none !important;
+  }
+}
